@@ -163,19 +163,29 @@ The exercise demonstrated the importance of validating SIEM pipelines using actu
 
 ## Evidence
 
-Portfolio evidence is stored under:
+## Implementation Evidence
 
-[`docs/evidence/`](docs/evidence/)
+### Azure Activity Log Ingestion & KQL Analysis
 
-Evidence includes:
+Azure control-plane telemetry was successfully streamed into the NorthStar Log Analytics workspace and queried through Microsoft Sentinel.
 
-- Azure Activity analysis with KQL
-- Failed control-plane operation detection
-- Microsoft Sentinel alert generation
-- Sentinel incident investigation
-- Resolved incident with security-testing classification
+![Microsoft Sentinel Azure Activity KQL](docs/evidence/sentinel-azure-activity-kql.jpg)
 
-Sensitive identifiers, credentials, personal email addresses, subscription IDs, tenant IDs, and access tokens are excluded from public evidence.
+### Failed Control-Plane Operation Detection
+
+The custom KQL detection successfully identified the controlled failed Azure management operation.
+
+![Microsoft Sentinel Failed Control Plane Detection](docs/evidence/sentinel-failed-control-plane-detection.jpg)
+
+### Incident Investigation & Resolution
+
+The scheduled analytics rule generated a Sentinel alert and incident. After investigation, the activity was determined to be authorized security testing and the incident was resolved.
+
+![Microsoft Sentinel Resolved Incident](docs/evidence/sentinel-incident-resolved.jpg)
+
+### Evidence Handling
+
+Public evidence is intentionally sanitized. Personal email addresses, subscription IDs, tenant IDs, credentials, access tokens, and other sensitive identifiers are excluded.
 
 ## Documentation
 
