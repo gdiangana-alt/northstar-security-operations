@@ -1,0 +1,8 @@
+// Detect failed Azure control-plane operations in the NorthStar environment
+
+AzureActivity
+| where TimeGenerated > ago(24h)
+| where ResourceGroup =~ "NORTHSTAR-AZURE-RG"
+| where ActivityStatusValue =~ "Failure"
+| project TimeGenerated, OperationNameValue, ActivityStatusValue, ResourceGroup
+| sort by TimeGenerated desc
