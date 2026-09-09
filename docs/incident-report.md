@@ -19,4 +19,4 @@ The custom analytics rule monitored Azure Activity logs for failed management op
 AzureActivity
 | where ResourceGroup =~ "NORTHSTAR-AZURE-RG"
 | where ActivityStatusValue =~ "Failure"
-| project TimeGenerated, OperationNameValue, ActivityStatusValue, ResourceGroup
+| project TimeGenerated, OperationNameValue, ActivityStatusValue, ResourceGroup 
